@@ -1,0 +1,11 @@
+[package]
+name        = "celty"
+version     = "0.0.0"
+authors     = ["Gray Espinoza <grey@grayespinoza.dev>"]
+edition     = "2024"
+description = "A virtual pet"
+readme      = "docs/README.md"
+repository  = "https://github.com/grayespinoza/celty"
+license     = "GPL-3.0-or-later"
+
+[dependencies]
