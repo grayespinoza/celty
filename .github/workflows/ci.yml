@@ -29,6 +29,14 @@ jobs:
           components: rustfmt
       - name: Run Rustfmt
         run: cargo fmt --all -- --check
+  typos:
+    name: Run typos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run typos
+        uses: crate-ci/typos@master
   clippy:
     name: Run Clippy
     runs-on: ubuntu-latest
