@@ -8,6 +8,7 @@ body = """
 {% else %}\
   ## Unreleased
 {% endif %}\
+
 {% for group, commits in commits | group_by(attribute="group") %}
     ### {{ group | striptags | trim | upper_first }}
     {% for group, commits in commits | group_by(attribute="scope") %}
@@ -19,6 +20,16 @@ body = """
       {% endfor %}
     {% endfor %}\
 {% endfor %}\n
+
+{% if github.contributors | filter(attribute="is_first_time", value=true) | length != 0 %}
+  ## New Contributors
+{% endif %}\
+{% for contributor in github.contributors | filter(attribute="is_first_time", value=true) %}
+  - @__[{{ contributor.username }}](https://github.com/{{ contributor.username }})__ made their first contribution
+    {%- if contributor.pr_number %} in \
+      [#{{ contributor.pr_number }}]({{ self::remote_url() }}/pull/{{ contributor.pr_number }}) \
+    {%- endif %}
+{%- endfor -%}
 """
 trim = true
 
