@@ -2,15 +2,24 @@
 
 ## Unreleased
 
-### Continuous Delivery
+### Documentation
 
-#### GitHub Actions
+#### Unscoped
 
-- Add git-cliff job
+- Include contributor in CHANGELOG by @grayespinoza
+
 
 ### Continuous Integration
 
 #### GitHub Actions
 
-- Add typos job
+- Add typos job by @grayespinoza
+
+
+### Continuous Delivery
+
+#### GitHub Actions
+
+- Add git-cliff job by @grayespinoza
+
 
