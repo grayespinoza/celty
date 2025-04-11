@@ -8,3 +8,9 @@
 
 - Add git-cliff job
 
+### Continuous Integration
+
+#### GitHub Actions
+
+- Add typos job
+
