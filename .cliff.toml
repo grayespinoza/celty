@@ -8,17 +8,31 @@ body = """
 {% else %}\
   ## Unreleased
 {% endif %}\
+
 {% for group, commits in commits | group_by(attribute="group") %}
-    ### {{ group | striptags | trim | upper_first }}
-    {% for group, commits in commits | group_by(attribute="scope") %}
-      #### {{ group | striptags | trim | upper_first }}
-      {% for commit in commits %}
-        - {{ commit.message | upper_first }}\
-          {% if commit.remote.username %} by @__[{{ commit.remote.username }}](https://github.com/{{ commit.remote.username }})__{%- endif %}\
-          {% if commit.remote.pr_number %} in #{{ commit.remote.pr_number }}{%- endif %}
-      {% endfor %}
+  ### {{ group | striptags | trim | upper_first }}
+  {% for group, commits in commits | group_by(attribute="scope") %}
+    #### {{ group | striptags | trim | upper_first }}
+    {% for commit in commits %}
+      - {{ commit.message | upper_first }}\
+        {% if commit.remote.username %} by @**[{{ commit.remote.username }}](https://github.com/{{ commit.remote.username }})**{%- endif %}\
+        {% if commit.remote.pr_number %} in #{{ commit.remote.pr_number }}{%- endif %}
     {% endfor %}\
-{% endfor %}\n
+  {% endfor %}\
+{% endfor %}\
+
+{% if github.contributors | filter(attribute="is_first_time", value=true) | length != 0 %}
+  ## New Contributors
+{% endif %}\
+{% for contributor in github.contributors | filter(attribute="is_first_time", value=true) %}
+  - @**[{{ contributor.username }}](https://github.com/{{ contributor.username }})** made their first contribution \
+    {%- if contributor.pr_number %} in
+      [#{{ contributor.pr_number }}]({{ self::remote_url() }}/pull/{{ contributor.pr_number }})
+    {%- endif %}\
+{%- endfor -%}
+"""
+footer = """
+\n
 """
 trim = true
 
