@@ -1,6 +1,7 @@
 # Celty
 ![Commits since Latest Release](https://img.shields.io/github/commits-since/grayespinoza/celty/latest?style=flat&label=Commits%20since%20Latest%20Release&labelColor=%231b1b1b&color=%230969da)
 ![License](https://img.shields.io/github/license/grayespinoza/celty?style=flat&label=License&labelColor=%231b1b1b&color=%230969da)
+![CI Status](https://img.shields.io/github/actions/workflow/status/grayespinoza/celty/ci.yml?style=flat&label=CI&labelColor=%231b1b1b&color=%231f883d)
 ![GitHub Downloads](https://img.shields.io/github/downloads/grayespinoza/celty/total?style=flat&label=GitHub%20Downloads&labelColor=%231b1b1b&color=%231f883d)
 ![Flathub Downloads](https://img.shields.io/flathub/downloads/io.github.grayespinoza.Celty?style=flat&label=Flathub%20Downloads&labelColor=%231b1b1b&color=%231f883d)
 
